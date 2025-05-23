@@ -58,3 +58,24 @@ mvn clean test
 - **Factory Pattern**: Creates different browser instances
 - **Singleton Pattern**: Manages WebDriver instances
 - **Builder Pattern**: Simplifies test data creation
+
+## How Patterns Work Together
+1. Page Object Model provides the structure for page interactions (LoginPage, HomePage)
+
+2. Factory Pattern (DriverFactory) creates different browser instances based on configuration
+
+3. Singleton Pattern (DriverManager) ensures a single WebDriver instance per thread
+
+4. Builder Pattern (UserData) simplifies creation of complex test data objects
+
+-----------In the test class, all these patterns are seamlessly integrated------------
+// Get test data using Builder Pattern
+UserData user = UserData.getStandardUser();
+
+// Get WebDriver using Singleton Pattern (DriverManager utilizes Factory Pattern internally)
+driver = DriverManager.getDriver();
+
+// Use Page Object Model for test steps
+LoginPage loginPage = new LoginPage(driver);
+HomePage homePage = loginPage.login(user.getUsername(), user.getPassword());
+

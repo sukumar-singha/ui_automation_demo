@@ -69,6 +69,8 @@ mvn clean test
 4. Builder Pattern (UserData) simplifies creation of complex test data objects
 
 -----------In the test class, all these patterns are seamlessly integrated------------
+
+
 // Get test data using Builder Pattern
 UserData user = UserData.getStandardUser();
 

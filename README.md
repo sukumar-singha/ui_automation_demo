@@ -72,12 +72,18 @@ mvn clean test
 
 
 // Get test data using Builder Pattern
+
+
 UserData user = UserData.getStandardUser();
 
 // Get WebDriver using Singleton Pattern (DriverManager utilizes Factory Pattern internally)
+
+
 driver = DriverManager.getDriver();
 
 // Use Page Object Model for test steps
+
+
 LoginPage loginPage = new LoginPage(driver);
 HomePage homePage = loginPage.login(user.getUsername(), user.getPassword());
 
